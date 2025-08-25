@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Your Profile – Teachuonline</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+	<script src="auth.js" defer></script>
+	<script>
+		(function(){
+			function ready(fn){ document.readyState !== 'loading' ? fn() : document.addEventListener('DOMContentLoaded', fn); }
+			ready(function(){
+				const raw = localStorage.getItem('user');
+				if (!raw) { window.location.href = 'index.html'; return; }
+				const user = JSON.parse(raw);
+				document.getElementById('pName').textContent = user.name || '';
+				document.getElementById('pEmail').textContent = user.email || '';
+				document.getElementById('pProvider').textContent = (user.provider || 'local');
+				const avatar = document.getElementById('pAvatar');
+				if (user.picture) { avatar.src = user.picture; avatar.alt = user.name; }
+			});
+		})();
+	</script>
+</head>
+<body>
+	<header class="site-header">
+		<div class="container header-inner">
+			<a class="logo" href="index.html">Teachuonline</a>
+			<nav class="nav">
+				<a href="index.html#courses">Courses</a>
+				<a href="index.html#features">Features</a>
+				<a href="index.html#pricing">Pricing</a>
+				<a href="index.html#faq">FAQ</a>
+			</nav>
+			<button id="signOutBtn" class="button button--ghost" type="button">Sign out</button>
+		</div>
+	</header>
+
+	<section class="section">
+		<div class="container" style="max-width:720px">
+			<h1>Your profile</h1>
+			<div style="display:flex; gap:16px; align-items:center; margin: 16px 0 24px;">
+				<img id="pAvatar" src="" alt="Avatar" style="width:72px; height:72px; border-radius:50%; border:1px solid var(--border); background: var(--card); object-fit: cover;">
+				<div>
+					<div style="font-size: 20px; font-weight: 700;" id="pName"></div>
+					<div style="color: var(--muted);" id="pEmail"></div>
+					<div style="color: var(--muted); font-size: 14px;">Provider: <span id="pProvider"></span></div>
+				</div>
+			</div>
+
+			<div class="card">
+				<h3>Membership</h3>
+				<p style="color:var(--muted)">All‑access (₹19). Manage your subscription via your payment provider.</p>
+			</div>
+		</div>
+	</section>
+
+	<footer class="site-footer">
+		<div class="container footer-inner">
+			<p>© <span id="year"></span> Teachuonline. All rights reserved.</p>
+			<nav class="footer-nav">
+				<a href="index.html#">Privacy</a>
+				<a href="index.html#">Terms</a>
+				<a href="index.html#">Contact</a>
+			</nav>
+		</div>
+	</footer>
+	<script>
+		const y = document.getElementById('year');
+		if (y) y.textContent = new Date().getFullYear().toString();
+	</script>
+</body>
+</html> 

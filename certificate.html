@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Your Certificate – Teachuonline</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+	<meta name="robots" content="noindex">
+	<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js" defer></script>
+	<script src="certificate.js" defer></script>
+	<script>
+		(function(){
+			function ready(fn){ document.readyState !== 'loading' ? fn() : document.addEventListener('DOMContentLoaded', fn); }
+			function getParam(k){ const u=new URL(window.location.href); return u.searchParams.get(k) || ''; }
+			ready(function(){
+				const name = getParam('name');
+				const course = getParam('course') || 'All‑access Membership';
+				if (name) { const i=document.getElementById('certName'); if (i) i.value = name; }
+				if (course) { const c=document.getElementById('certCourse'); if (c) c.value = course; }
+			});
+		})();
+	</script>
+</head>
+<body>
+	<header class="site-header">
+		<div class="container header-inner">
+			<a class="logo" href="index.html">Teachuonline</a>
+			<nav class="nav">
+				<a href="index.html#courses">Courses</a>
+				<a href="index.html#features">Features</a>
+				<a href="index.html#pricing">Pricing</a>
+			</nav>
+			<a class="button button--ghost" href="index.html#cta">Home</a>
+		</div>
+	</header>
+
+	<section class="section">
+		<div class="container">
+			<h1>Payment successful</h1>
+			<p>Generate your certificate below.</p>
+			<form class="grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px;" onsubmit="return false">
+				<input class="input" id="certName" type="text" placeholder="Your full name" aria-label="Full name" required>
+				<input class="input" id="certCourse" type="text" placeholder="Course name" aria-label="Course name" required value="All‑access Membership">
+				<button class="button" type="button" id="generateCert">Generate Certificate (PDF)</button>
+			</form>
+		</div>
+	</section>
+
+	<footer class="site-footer">
+		<div class="container footer-inner">
+			<p>© <span id="year"></span> Teachuonline. All rights reserved.</p>
+			<nav class="footer-nav">
+				<a href="index.html#">Privacy</a>
+				<a href="index.html#">Terms</a>
+				<a href="index.html#">Contact</a>
+			</nav>
+		</div>
+	</footer>
+	<script>
+		const y = document.getElementById('year');
+		if (y) y.textContent = new Date().getFullYear().toString();
+	</script>
+</body>
+</html> 

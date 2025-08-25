@@ -88,3 +88,15 @@ body {
 .footer-nav { display: flex; gap: 14px; }
 .footer-nav a { color: var(--muted); text-decoration: none; }
 .footer-nav a:hover { color: var(--text); } 
+
+.modal { position: fixed; inset: 0; display: none; }
+.modal[aria-hidden="false"] { display: block; }
+.modal__backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
+.modal__dialog { position: relative; max-width: 420px; margin: 10vh auto; background: var(--card); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.45); }
+.modal__header { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; border-bottom: 1px solid var(--border); }
+.modal__close { background: transparent; border: none; font-size: 22px; color: var(--muted); cursor: pointer; }
+.modal__body { padding: 16px; display: grid; gap: 12px; }
+.label { display: grid; gap: 6px; font-size: 14px; color: var(--muted); }
+.modal__actions { display: flex; gap: 10px; align-items: center; }
+.divider { display: flex; align-items: center; gap: 10px; color: var(--muted); }
+.divider::before, .divider::after { content: ""; height: 1px; background: var(--border); flex: 1; } 

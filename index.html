@@ -9,10 +9,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="styles.css">
 	<meta name="description" content="High‑quality online courses with expert instructors. Learn skills with self‑paced lessons, live cohorts, and certifications.">
-	<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js" defer></script>
-	<script src="https://checkout.razorpay.com/v1/checkout.js" defer></script>
-	<script src="purchase.js" defer></script>
-	<script src="certificate.js" defer></script>
+	<script src="https://accounts.google.com/gsi/client" async defer></script>
+	<script src="auth.js" defer></script>
 </head>
 <body>
 	<header class="site-header">
@@ -22,12 +20,61 @@
 				<a href="#courses">Courses</a>
 				<a href="#features">Features</a>
 				<a href="#pricing">Pricing</a>
-				<a href="#certificate">Certificate</a>
 				<a href="#faq">FAQ</a>
+				<a id="profileLink" href="profile.html" style="display:none">Profile</a>
 			</nav>
-			<a class="button button--ghost" href="#cta">Get Started</a>
+			<div style="display:flex; align-items:center; gap:10px">
+				<button id="openSignIn" class="button button--ghost" type="button">Sign in</button>
+				<div id="g_id_onload"
+					 data-client_id="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com"
+					 data-context="signin"
+					 data-callback="handleGoogleResponse"
+					 data-auto_prompt="false">
+				</div>
+				<div class="g_id_signin"
+					 data-type="icon"
+					 data-shape="circle"
+					 data-theme="outline"
+					 data-text="signin_with"
+					 data-size="medium"
+					 data-logo_alignment="left">
+				</div>
+				<button id="signOutBtn" class="button button--ghost" style="display:none" type="button">Sign out</button>
+			</div>
 		</div>
 	</header>
+
+	<!-- Sign In Modal -->
+	<div id="signinModal" class="modal" aria-hidden="true">
+		<div class="modal__backdrop" id="closeSignIn"></div>
+		<div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="signinTitle">
+			<div class="modal__header">
+				<h3 id="signinTitle">Sign in</h3>
+				<button id="closeSignInBtn" class="modal__close" aria-label="Close">×</button>
+			</div>
+			<form id="signInForm" class="modal__body" onsubmit="return false">
+				<label class="label">Email
+					<input class="input" id="emailInput" type="email" placeholder="you@example.com" required>
+				</label>
+				<label class="label">Password
+					<input class="input" id="passwordInput" type="password" placeholder="Your password" required>
+				</label>
+				<div class="modal__actions">
+					<button id="emailSignInBtn" class="button" type="submit">Sign in</button>
+					<button id="emailSignUpBtn" class="button button--ghost" type="button">Create account</button>
+				</div>
+				<div class="divider"><span>or</span></div>
+				<div class="g_id_signin"
+					 data-type="standard"
+					 data-shape="rectangular"
+					 data-theme="outline"
+					 data-text="signin_with"
+					 data-size="large"
+					 data-logo_alignment="left">
+				</div>
+			</form>
+		</div>
+	</div>
 
 	<section class="hero">
 		<div class="container hero-inner">
@@ -43,6 +90,7 @@
 					<li>Lifetime access</li>
 					<li>Certificates included</li>
 				</ul>
+				<p id="welcomeUser" style="margin-top:10px; color: var(--muted);"></p>
 			</div>
 			<div class="hero-media" aria-hidden="true">
 				<div class="media-card"></div>
@@ -155,17 +203,6 @@
 					<a class="button button--block" href="https://razorpay.me/@TeachUOnline" target="_blank" rel="noopener">Start now</a>
 				</div>
 			</div>
-		</div>
-	</section>
-
-	<section id="certificate" class="section">
-		<div class="container">
-			<h2>Generate your certificate</h2>
-			<form class="grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px;" onsubmit="return false">
-				<input class="input" id="certName" type="text" placeholder="Your full name" aria-label="Full name" required>
-				<input class="input" id="certCourse" type="text" placeholder="Course name" aria-label="Course name" required>
-				<button class="button" type="button" id="generateCert">Generate Certificate (PDF)</button>
-			</form>
 		</div>
 	</section>
 
