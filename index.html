@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Teachuonline – Learn Anything, Anywhere</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+	<meta name="description" content="High‑quality online courses with expert instructors. Learn skills with self‑paced lessons, live cohorts, and certifications.">
+	<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js" defer></script>
+	<script src="https://checkout.razorpay.com/v1/checkout.js" defer></script>
+	<script src="purchase.js" defer></script>
+	<script src="certificate.js" defer></script>
+</head>
+<body>
+	<header class="site-header">
+		<div class="container header-inner">
+			<a class="logo" href="#">Teachuonline</a>
+			<nav class="nav">
+				<a href="#courses">Courses</a>
+				<a href="#features">Features</a>
+				<a href="#pricing">Pricing</a>
+				<a href="#certificate">Certificate</a>
+				<a href="#faq">FAQ</a>
+			</nav>
+			<a class="button button--ghost" href="#cta">Get Started</a>
+		</div>
+	</header>
+
+	<section class="hero">
+		<div class="container hero-inner">
+			<div class="hero-copy">
+				<h1>Learn skills that advance your career</h1>
+				<p>Video lessons, live sessions, and certificates. Self‑paced or cohort‑based — your learning, your way.</p>
+				<div class="hero-cta">
+					<a class="button" href="#courses">Browse Courses</a>
+					<a class="button button--ghost" href="#pricing">See Pricing</a>
+				</div>
+				<ul class="hero-trust">
+					<li>Practical, project‑based</li>
+					<li>Lifetime access</li>
+					<li>Certificates included</li>
+				</ul>
+			</div>
+			<div class="hero-media" aria-hidden="true">
+				<div class="media-card"></div>
+			</div>
+		</div>
+	</section>
+
+	<section id="features" class="features section">
+		<div class="container">
+			<h2>Everything you need to master new skills</h2>
+			<div class="grid features-grid">
+				<div class="card">
+					<h3>Expert‑led videos</h3>
+					<p>Concise HD lessons from industry practitioners. Learn by watching real workflows.</p>
+				</div>
+				<div class="card">
+					<h3>Quizzes & projects</h3>
+					<p>Reinforce learning with practical exercises, quizzes, and capstone projects.</p>
+				</div>
+				<div class="card">
+					<h3>Live cohorts</h3>
+					<p>Join scheduled live sessions for Q&A, code reviews, and feedback.</p>
+				</div>
+				<div class="card">
+					<h3>Certificates</h3>
+					<p>Earn shareable certificates to showcase your achievements.</p>
+				</div>
+				<div class="card">
+					<h3>Mobile friendly</h3>
+					<p>Access courses anywhere with a smooth, responsive experience.</p>
+				</div>
+				<div class="card">
+					<h3>Flexible access</h3>
+					<p>Self‑paced, memberships, or bundles — choose what suits you.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="courses" class="section courses">
+		<div class="container">
+			<div class="section-head">
+				<h2>Popular courses</h2>
+				<a class="link" href="#">View all</a>
+			</div>
+			<div class="grid course-grid">
+				<article class="course-card">
+					<div class="thumb"></div>
+					<div class="course-body">
+						<h3>Full‑Stack Web Development</h3>
+						<p>Build and deploy modern apps with hands‑on projects.</p>
+						<div class="meta"><span>Beginner–Intermediate</span><span>24h</span></div>
+						<a class="button button--block" href="#cta">Enroll now</a>
+					</div>
+				</article>
+				<article class="course-card">
+					<div class="thumb"></div>
+					<div class="course-body">
+						<h3>Data Analytics with Python</h3>
+						<p>Analyze and visualize data using Pandas, NumPy, and more.</p>
+						<div class="meta"><span>All levels</span><span>18h</span></div>
+						<a class="button button--block" href="#cta">Enroll now</a>
+					</div>
+				</article>
+				<article class="course-card">
+					<div class="thumb"></div>
+					<div class="course-body">
+						<h3>UI/UX Design Foundations</h3>
+						<p>Design delightful products with research‑driven methods.</p>
+						<div class="meta"><span>Beginner</span><span>12h</span></div>
+						<a class="button button--block" href="#cta">Enroll now</a>
+					</div>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<section id="testimonials" class="section testimonials">
+		<div class="container">
+			<h2>Learners love Teachuonline</h2>
+			<div class="grid testimonials-grid">
+				<figure class="quote">
+					<blockquote>“The projects were exactly what I needed to land my first developer role.”</blockquote>
+					<figcaption>— Priya, Full‑Stack Graduate</figcaption>
+				</figure>
+				<figure class="quote">
+					<blockquote>“Bite‑sized videos + clear roadmap. Best learning experience I’ve had.”</blockquote>
+					<figcaption>— Daniel, Data Analyst</figcaption>
+				</figure>
+				<figure class="quote">
+					<blockquote>“The certificate helped me stand out — got a promotion in 2 months.”</blockquote>
+					<figcaption>— Aisha, Product Designer</figcaption>
+				</figure>
+			</div>
+		</div>
+	</section>
+
+	<section id="pricing" class="section pricing">
+		<div class="container">
+			<h2>Simple pricing</h2>
+			<div class="grid pricing-grid">
+				<div class="price-card price-card--featured">
+					<h3>All‑access</h3>
+					<p class="price"><span>₹</span>19</p>
+					<ul class="list">
+						<li>All courses included</li>
+						<li>Live sessions</li>
+						<li>Certificate on completion</li>
+					</ul>
+					<button class="button button--block" id="purchaseBtn" type="button" data-key="">Start now</button>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="certificate" class="section">
+		<div class="container">
+			<h2>Generate your certificate</h2>
+			<form class="grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px;" onsubmit="return false">
+				<input class="input" id="certName" type="text" placeholder="Your full name" aria-label="Full name" required>
+				<input class="input" id="certCourse" type="text" placeholder="Course name" aria-label="Course name" required>
+				<button class="button" type="button" id="generateCert">Generate Certificate (PDF)</button>
+			</form>
+		</div>
+	</section>
+
+	<section id="cta" class="section cta">
+		<div class="container cta-inner">
+			<h2>Ready to start learning?</h2>
+			<p>Join thousands of learners leveling up their careers.</p>
+			<form class="cta-form" onsubmit="return false">
+				<input class="input" type="email" placeholder="Enter your email" aria-label="Email">
+				<button class="button" type="submit">Get started</button>
+			</form>
+		</div>
+	</section>
+
+	<footer class="site-footer">
+		<div class="container footer-inner">
+			<p>© <span id="year"></span> Teachuonline. All rights reserved.</p>
+			<nav class="footer-nav">
+				<a href="#">Privacy</a>
+				<a href="#">Terms</a>
+				<a href="#">Contact</a>
+			</nav>
+		</div>
+	</footer>
+
+	<script>
+		const y = document.getElementById('year');
+		if (y) y.textContent = new Date().getFullYear().toString();
+	</script>
+</body>
+</html> 
